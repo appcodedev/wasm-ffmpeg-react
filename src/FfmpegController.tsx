@@ -12,7 +12,7 @@ export const FfmpegController: React.FC<Props> = ({
 }) => {
   const ffmpeg = createFFmpeg({ log: true });
 
-  const transCodeVideo = async () => {
+  const transcodeToAudio = async () => {
     if (!ffmpeg.isLoaded()) {
       await ffmpeg.load();
     }
@@ -35,9 +35,40 @@ export const FfmpegController: React.FC<Props> = ({
     setAudioSourceUrl(audioSourceUrl);
   };
 
+  const convertToGif = async () => {
+    if (!ffmpeg.isLoaded()) {
+      await ffmpeg.load();
+    }
+
+    ffmpeg.FS("writeFile", videoFileName, await fetchFile(videoFileName));
+    await ffmpeg.run(
+      "-ss",
+      "30",
+      "-t",
+      "10",
+      "-i",
+      videoFileName,
+      "-f",
+      "gif",
+      "sample.gif"
+    );
+
+    const data = ffmpeg.FS("readFile", "sample.gif");
+    const gifUrl = URL.createObjectURL(
+      new Blob([data.buffer], { type: "image/gif" })
+    );
+    const image = document.getElementById("image") as HTMLImageElement;
+    image.src = gifUrl;
+  };
+
   return (
-    <button name="transcode" onClick={transCodeVideo}>
-      Transcode to Audio
-    </button>
+    <div>
+      <button name="transcode" onClick={transcodeToAudio}>
+        Transcode to Audio
+      </button>
+      <button name="convert-to-gif" onClick={convertToGif}>
+        Convert to gif
+      </button>
+    </div>
   );
 };

@@ -34,6 +34,10 @@ function App() {
             and watch it with your favorite video player!
           </video>
           <audio ref={audioPlayerRef} id="audio-player" controls></audio>
+
+          <div>
+            <img id="image" />
+          </div>
         </div>
       </div>
     </div>
