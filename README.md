@@ -12,3 +12,7 @@ Now you can run the following commands:
 ### `npm install`
 
 ### `npm start`
+
+## Demo
+
+![](ffmpeg_wasm_recording.mov)
