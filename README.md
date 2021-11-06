@@ -15,4 +15,5 @@ Now you can run the following commands:
 
 ## Demo
 
-![](ffmpeg_wasm_recording.mov)
+https://user-images.githubusercontent.com/92477970/140608042-19d4b7c7-a2fc-45f3-bc83-f09a14979aa9.mov
+
