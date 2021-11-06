@@ -34,14 +34,9 @@ function App() {
           style={{ width: "40%" }}
           id="video-player"
           controls
-          src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+          src="http://localhost:3000/sample-video.mp4"
           poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
-        >
-          Sorry, your browser doesn't support embedded videos, but don't worry,
-          you can{" "}
-          <a href="https://archive.org/details/BigBuckBunny_124">download it</a>
-          and watch it with your favorite video player!
-        </video>
+        ></video>
         <TranscodeAudio
           videoFileName="sample-video.mp4"
           setAudioSourceUrl={handleSetAudioSourceUrl}
@@ -58,14 +53,9 @@ function App() {
           style={{ width: "40%" }}
           id="video-player"
           controls
-          src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+          src="http://localhost:3000/sample-video.mp4"
           poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
-        >
-          Sorry, your browser doesn't support embedded videos, but don't worry,
-          you can{" "}
-          <a href="https://archive.org/details/BigBuckBunny_124">download it</a>
-          and watch it with your favorite video player!
-        </video>
+        ></video>
 
         <CovertToGif
           videoFileName="sample-video.mp4"
