@@ -22,13 +22,14 @@ export const TranscodeAudio: React.FC<Props> = ({
 
     ffmpeg.FS("writeFile", videoFileName, await fetchFile(videoFileName));
     await ffmpeg.run(
-      "-i",
-      videoFileName,
-      "-vn",
-      "-acodec",
-      "copy",
-      "audio-track.m4a"
+      "-i", // input
+      videoFileName, // [input] file
+      "-vn", // no video
+      "-acodec", // force audio codec
+      "copy", // copy audio (-acodec above)
+      "audio-track.m4a" // name of mp4 audio file
     );
+    // Commands found at: https://stackoverflow.com/questions/9913032/how-can-i-extract-audio-from-video-with-ffmpeg
 
     const data = ffmpeg.FS("readFile", "audio-track.m4a");
 

@@ -16,7 +16,7 @@ export const CovertToGif: React.FC<Props> = ({
   const convertToGif = async () => {
     setIsDisabled(true);
     setImageSourceUrl(
-      "https://via.placeholder.com/280x160.png/4f4d4d/00d5fe/?text=ffmpeg.wasm demo"
+      "https://via.placeholder.com/280x160.png/4b4b4b/00d5fe/?text=ffmpeg.wasm demo"
     );
 
     if (!ffmpeg.isLoaded()) {
@@ -25,16 +25,17 @@ export const CovertToGif: React.FC<Props> = ({
 
     ffmpeg.FS("writeFile", videoFileName, await fetchFile(videoFileName));
     await ffmpeg.run(
-      "-ss",
-      "60",
-      "-t",
-      "10",
-      "-i",
-      videoFileName,
-      "-f",
-      "gif",
-      "sample.gif"
+      "-ss", // seek
+      "60", // at 60 sec mark
+      "-t", // read
+      "10", // 10 seconds of media
+      "-i", // input
+      videoFileName, // [input] file
+      "-f", // force format
+      "gif", // to be gif
+      "sample.gif" // output file name
     );
+    // commands from: https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
 
     const data = ffmpeg.FS("readFile", "sample.gif");
     const gifUrl = URL.createObjectURL(
@@ -51,7 +52,7 @@ export const CovertToGif: React.FC<Props> = ({
         onClick={convertToGif}
         disabled={isDisabled}
       >
-        {isDisabled ? <>⏳ Converting... </> : <>🎵 📸 Convert to gif</>}
+        {isDisabled ? <>⏳ Converting... </> : <>📸 Convert to gif</>}
       </button>
     </>
   );

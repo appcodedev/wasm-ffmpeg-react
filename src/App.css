@@ -29,7 +29,17 @@ button:disabled {
   flex: 1;
   align-items: center;
   justify-content: space-around;
-  margin: 8rem 0rem;
+  padding: 5rem 0rem;
+}
+
+.stripe {
+  background-color: #4b4b4b;
+}
+
+.link {
+  color: #1779ba;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .App-logo {
