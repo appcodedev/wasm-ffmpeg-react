@@ -73,6 +73,7 @@ function App() {
         />
         <img
           ref={imageRef}
+          alt="Gif placeholder"
           style={{ width: "30%", backgroundColor: "red" }}
           id="image"
           src="https://via.placeholder.com/280x160.png/4f4d4d/00d5fe/?text=ffmpeg.wasm demo"
